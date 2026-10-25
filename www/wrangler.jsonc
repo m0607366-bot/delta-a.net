@@ -1,0 +1,9 @@
+{
+	"$schema": "../node_modules/wrangler/config-schema.json",
+	// www.delta-a.net に来た人を delta-a.net の同じページへ転送するだけのもの
+	"name": "www-delta-a-net",
+	"main": "index.js",
+	"compatibility_date": "2026-02-24",
+	"workers_dev": false,
+	"routes": [{ "pattern": "www.delta-a.net", "custom_domain": true }]
+}
