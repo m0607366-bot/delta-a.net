@@ -15,6 +15,14 @@ const REMOVE = [
 	/<!--[^>]*Site Kit[^>]*-->\s*/g,
 	/<script\b[^>]*id=["']google_gtagjs-js[^"']*["'][^>]*>[\s\S]*?<\/script>\s*/g,
 	/<script\b[^>]*src=["']https:\/\/www\.googletagmanager\.com\/[^"']*["'][^>]*><\/script>\s*/g,
+	// Google AdSense の広告（ウィジェットごと・記事中の広告・読み込み用のタグ）
+	/<div id="custom_html-\d+" class="widget_text widget[^"]*"><div class="textwidget custom-html-widget">(?:(?!<\/div>)[\s\S])*?adsbygoogle(?:(?!<\/div>)[\s\S])*?<\/div><\/div>\s*/g,
+	/<script\b[^>]*src=["'][^"']*pagead2\.googlesyndication\.com[^"']*["'][^>]*><\/script>\s*/g,
+	/<!--[^>]*広告[^>]*-->\s*/g,
+	/<ins class="adsbygoogle"[\s\S]*?<\/ins>\s*/g,
+	/<script>\s*\(adsbygoogle = window\.adsbygoogle \|\| \[\]\)\.push\(\{\}\);\s*<\/script>\s*/g,
+	/<meta name="google-adsense-[^>]*>\s*/g,
+	/<link rel='dns-prefetch' href='\/\/pagead2\.googlesyndication\.com' \/>/g,
 	// コメントのフィード・返信用スクリプト（静的サイトではコメントを受け付けない）
 	/<link rel="alternate"[^>]*(?:コメントフィード|comments\/feed)[^>]*>\s*/g,
 	/<script[^>]*comment-reply(?:\.min)?\.js[^>]*><\/script>\s*/g,
